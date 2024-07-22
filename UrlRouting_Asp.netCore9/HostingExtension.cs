@@ -9,6 +9,7 @@
         public static WebApplication ConfigurePipeline(this WebApplication app)
         {
             app.MapGet("/ingredients/{name}", new IngredientMiddleware().InvokeAsync);
+            app.MapGet("/recipes/{name}",new Recipes().InvokeAsync);
             return app;
         }
     }

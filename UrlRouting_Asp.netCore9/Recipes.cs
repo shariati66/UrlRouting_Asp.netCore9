@@ -1,14 +1,14 @@
 ﻿namespace UrlRouting_Asp.netCore9
 {
-    public class IngredientMiddleware
+    public class Recipes
     {
         private readonly RequestDelegate next;
 
-        public IngredientMiddleware(RequestDelegate Next)
+        public Recipes(RequestDelegate Next)
         {
             next = Next;
         }
-        public IngredientMiddleware()
+        public Recipes()
         {
             
         }
@@ -19,16 +19,16 @@
             switch (name.ToString().ToLower())
             {
                 case "fried_egg":
-                    str_ingredients = "Oil and Eggs";
+                    str_ingredients = "Oil + Eggs";
                     break;
                 case "omlette":
-                    str_ingredients = "Oil, Eggs and Tomato";
+                    str_ingredients = "Oil  + Eggs + Tomato";
                     break;
                 case "rice":
-                    str_ingredients = "Rice and Salt";
+                    str_ingredients = "Rice + Salt";
                     break;
                 default:
-                    str_ingredients = "I don't Know";
+                    context.Response.Redirect("/ingredients/none");
                     break;
 
             }
