@@ -28,7 +28,9 @@
                     str_ingredients = "Rice + Salt";
                     break;
                 default:
-                    context.Response.Redirect("/ingredients/none");
+                    LinkGenerator? generator = context.RequestServices.GetService<LinkGenerator>();
+                    string? url = generator.GetPathByRouteValues(context, "ingredients", new { name = "none" });
+                    context.Response.Redirect(url);
                     break;
 
             }
