@@ -8,6 +8,7 @@
         }
         public static WebApplication ConfigurePipeline(this WebApplication app)
         {
+            app.MapGet("/ingredients/{name}", new IngredientMiddleware().InvokeAsync);
             return app;
         }
     }
